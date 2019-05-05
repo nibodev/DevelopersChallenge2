@@ -35,7 +35,7 @@ Os arquivos OFX estão na pasta ``\OFX``.
 - Não hospede sua aplicação ou parte dela em nenhum lugar. Sua aplicação deverá rodar localmente sem depender de serviços externos.
 
 ## Envio da solução
-Ao final, você deverá criar um fork deste repositório, incluir o seu código fonte, incluir o seu currículo dentro da pasta "_about",  preencher o formulário "_about/Profile.md" e enviar para dev@nibo.com.br o link do seu fork.
+Você deverá criar um fork deste repositório, incluir o seu código fonte, incluir o seu currículo dentro da pasta "_about",  preencher o formulário "_about/Profile.md" e enviar para dev@nibo.com.br o link do seu fork.
 
 Tenha capricho com seu código e com o resultado final. Essa é a sua chance de entrar para o melhor time, na startup que mais cresce no Brasil.
 
