@@ -14,7 +14,7 @@ Xayah é uma pequena jovem empresária que presta serviços de coaching para gru
 ### Problema
 Xayah precisa [concilicar o extrato bancário](https://www.nibo.com.br/blog/como-fazer-conciliacao-bancaria-passo-passo/) da empresa com as entradas e saídas que ela registrou no Excel do último mês. Para isso é utilizado um arquivo do tipo OFX, que contém o registro do banco de todas as entradas e saídas de um período e é fácil de exportar pelo Bankline.
 
-O problema é que Xayah baixou dois arquivos OFX: um que contém transações do dia 01 ao dia 15 e outro que contém transações do dia 10 ao 31. E agora ela não sabe o que fazer para garantir que todas as transações sejam conciliadas corretamente, uma vez que os arquivos OFX possuem transações de um período em comum.
+O problema é que Xayah baixou dois arquivos OFX: um que contém transações do dia 01 ao dia 20 e outro que contém transações do dia 15 ao 31. E agora ela não sabe o que fazer para garantir que todas as transações sejam conciliadas corretamente, uma vez que os arquivos OFX possuem transações de um período em comum.
 
 ### O que você deverá fazer
 Criar um sistema onde a Xayah possa importar dois ou mais arquivos OFX e, no final, poderá ver todas as transações bancárias que ocorreram no período.
