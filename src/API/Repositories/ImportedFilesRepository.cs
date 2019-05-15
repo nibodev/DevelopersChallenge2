@@ -21,5 +21,11 @@ namespace API.Repositories
         {
             return await _context.ImportedFiles.ToListAsync();
         }
+
+        public async Task Add(ImportedFile importedFile)
+        {
+            await _context.ImportedFiles.AddAsync(importedFile);
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace Tests.API
         [Fact]
         public void Should_parse_valid_file()
         {
-            var data = @""
+            Assert.True(false);
         }
     }
 }

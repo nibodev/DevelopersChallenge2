@@ -1,5 +1,6 @@
 ﻿using System;
 using API.DataContext;
+using API.Filters;
 using API.Interfaces;
 using API.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -47,6 +48,7 @@ namespace API
                 });
 
                 //s.IncludeXmlComments($@"{AppDomain.CurrentDomain.BaseDirectory}\Api.xml");
+                s.OperationFilter<FileUploadFilter>();
                 s.OperationFilter<AddResponseHeadersFilter>();
             });
             services.AddMvc();

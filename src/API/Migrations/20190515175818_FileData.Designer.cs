@@ -4,14 +4,16 @@ using API.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace API.Migrations
 {
     [DbContext(typeof(ReconcileContext))]
-    partial class ReconcileContextModelSnapshot : ModelSnapshot
+    [Migration("20190515175818_FileData")]
+    partial class FileData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,13 +26,13 @@ namespace API.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("FileContent");
+                    b.Property<byte[]>("FileContent");
 
                     b.Property<string>("FileName");
 
                     b.Property<DateTime>("ImportDate");
 
-                    b.Property<short>("Status");
+                    b.Property<int>("Status");
 
                     b.HasKey("Id");
 
