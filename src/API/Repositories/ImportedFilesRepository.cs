@@ -27,5 +27,10 @@ namespace API.Repositories
             await _context.ImportedFiles.AddAsync(importedFile);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<ImportedFile> Get(string fileFileName)
+        {
+            return await _context.ImportedFiles.Where(x => x.FileName == fileFileName).FirstOrDefaultAsync();
+        }
     }
 }

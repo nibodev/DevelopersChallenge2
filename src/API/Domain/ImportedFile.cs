@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 
 namespace API.Domain
@@ -10,6 +12,7 @@ namespace API.Domain
         public DateTime ImportDate { get; set; }
         public ImportStatus Status { get; protected set; }
         public string FileContent { get; protected set; }
+        public IList<Transaction> Transactions { get; protected set; }
 
         protected ImportedFile()
         {
@@ -17,6 +20,7 @@ namespace API.Domain
 
         public ImportedFile(string fileName, StreamReader fileData)
         {
+            Transactions = new List<Transaction>();
             ImportDate = DateTime.Now;
             Status = ImportStatus.Uploaded;
             FileName = fileName;
@@ -30,5 +34,16 @@ namespace API.Domain
             ImportDate = DateTime.Now;
             return this;
         }
+
+        public void AddTransaction(Transaction transaction)
+        {
+            Transactions.Add(transaction.WithFile(this));
+        }
+    }
+
+    public enum TransactionType : short
+    {
+        Debit = 1,
+        Credit = 2
     }
 }

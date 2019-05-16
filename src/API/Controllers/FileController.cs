@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using API.Domain;
 using API.Factories;
 using API.Interfaces;
+using API.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -41,6 +42,7 @@ namespace API.Controllers
             var importedFile = await _importedFilesRepository.Get(file.FileName);
 
             var workingFile = importedFile?.UpdateContent(uploadFile.FileContent) ?? uploadFile;
+            new OsfParser(workingFile).Parse();
 
             await _importedFilesRepository.Add(workingFile);
 
