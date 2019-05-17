@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using API.Domain;
 
@@ -13,7 +14,7 @@ namespace API.Services
         {
             if (node.Label.Equals("STMTTRN"))
             {
-                var value = Convert.ToDecimal(node.Children.Single(x => x.Label.Equals("TRNAMT")).Value);
+                var value = Convert.ToDecimal(node.Children.Single(x => x.Label.Equals("TRNAMT")).Value,new CultureInfo("en"));
                 var type = node.Children.Single(x => x.Label.Equals("TRNTYPE")).Value.Equals("DEBIT") ? TransactionType.Debit : TransactionType.Credit;
                 var date = node.Children.Single(x => x.Label.Equals("DTPOSTED")).Value.ParseDate();
                 var memo = node.Children.Single(x => x.Label.Equals("MEMO")).Value;

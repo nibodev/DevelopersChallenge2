@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(ReconcileContext))]
-    [Migration("20190516004528_Transactions")]
-    partial class Transactions
+    [Migration("20190516203955_TransactionStatus")]
+    partial class TransactionStatus
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,10 +21,28 @@ namespace API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("API.Domain.BankAccount", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AccountId");
+
+                    b.Property<string>("BanckId");
+
+                    b.Property<int>("Type");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Accounts");
+                });
+
             modelBuilder.Entity("API.Domain.ImportedFile", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("BankAccountId");
 
                     b.Property<string>("FileContent");
 
@@ -32,9 +50,9 @@ namespace API.Migrations
 
                     b.Property<DateTime>("ImportDate");
 
-                    b.Property<short>("Status");
-
                     b.HasKey("Id");
+
+                    b.HasIndex("BankAccountId");
 
                     b.ToTable("ImportedFiles");
                 });
@@ -52,13 +70,22 @@ namespace API.Migrations
 
                     b.Property<Guid?>("FileId");
 
+                    b.Property<bool>("Reconciled");
+
                     b.Property<short>("Type");
 
                     b.HasKey("Id");
 
                     b.HasIndex("FileId");
 
-                    b.ToTable("Transaction");
+                    b.ToTable("Transactions");
+                });
+
+            modelBuilder.Entity("API.Domain.ImportedFile", b =>
+                {
+                    b.HasOne("API.Domain.BankAccount", "BankAccount")
+                        .WithMany("Files")
+                        .HasForeignKey("BankAccountId");
                 });
 
             modelBuilder.Entity("API.Domain.Transaction", b =>

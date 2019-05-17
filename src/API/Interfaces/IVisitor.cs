@@ -1,6 +1,4 @@
-﻿using API.Services;
-
-namespace API.Interfaces
+﻿namespace API.Interfaces
 {
     
 }

@@ -10,6 +10,7 @@ namespace API.Domain
         public decimal Ammount { get; protected set; }
         public DateTime Date { get; protected set; }
         public ImportedFile File { get; protected set; }
+        public bool Reconciled { get; protected set; }
 
         protected Transaction() { }
 
@@ -19,12 +20,23 @@ namespace API.Domain
             Description = memo;
             Ammount = Math.Abs(value);
             Date = date;
+            Reconciled = false;
         }
 
         public Transaction WithFile(ImportedFile importedFile)
         {
             File = importedFile;
             return this;
+        }
+
+        public void Reconcile()
+        {
+            Reconciled = true;
+        }
+
+        public void UnReconcile()
+        {
+            Reconciled = false;
         }
     }
 }

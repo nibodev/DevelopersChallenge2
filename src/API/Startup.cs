@@ -1,5 +1,4 @@
-﻿using System;
-using API.DataContext;
+﻿using API.DataContext;
 using API.Filters;
 using API.Interfaces;
 using API.Repositories;
@@ -47,7 +46,6 @@ namespace API
                     Version = "V1"
                 });
 
-                //s.IncludeXmlComments($@"{AppDomain.CurrentDomain.BaseDirectory}\Api.xml");
                 s.OperationFilter<FileUploadFilter>();
                 s.OperationFilter<AddResponseHeadersFilter>();
             });
@@ -56,6 +54,8 @@ namespace API
             services.AddDbContext<ReconcileContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("SqlConnection")));
             services.AddScoped<IImportedFilesRepository, ImportedFilesRepository>();
+            services.AddScoped<IAccoutsRepository, AccountsRepository>();
+            services.AddScoped<ITransactionsRepository, TransactionsRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

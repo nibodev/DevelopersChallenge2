@@ -1,5 +1,4 @@
-﻿using System;
-using Swashbuckle.AspNetCore.Swagger;
+﻿using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace API.Filters
@@ -9,7 +8,7 @@ namespace API.Filters
         public static readonly string ActionName = "uploadfile";
         public void Apply(Operation operation, OperationFilterContext context)
         {
-            if (operation.OperationId.Equals(ActionName)) return;
+            if (!operation.OperationId.ToLower().Equals(ActionName)) return;
 
             operation.Parameters.Clear();
             operation.Parameters.Add(new NonBodyParameter()

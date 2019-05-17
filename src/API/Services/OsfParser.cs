@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,9 +25,14 @@ namespace API.Services
         public void Parse()
         {
             var transactionsVisitor = new GetTransactionsVisitor();
+            var bankAccountVisitor = new GetAccountVisitor();
+
             var ofx = CreateDataTreeStructure();
 
             ofx.Accept(transactionsVisitor);
+            ofx.Accept(bankAccountVisitor);
+
+            _importedFile.SetAccount(bankAccountVisitor.BankAccount);
 
             foreach (var transaction in transactionsVisitor.Transactions)
             {
@@ -48,7 +52,6 @@ namespace API.Services
                 while (stream.Peek() > 0)
                 {
                     var car = (char)stream.Read();
-                    Trace.WriteLine($"{currentFragmentType}-{builder.ToString()}");
                     switch (car)
                     {
                         case '<':
@@ -60,7 +63,6 @@ namespace API.Services
                                     currentNode?.SetValue(value);
                                     stack.Pop();
                                     currentNode = stack.Peek();
-                                    Trace.WriteLine($"Pop {currentNode}");
                                 }
                             }
 
@@ -73,12 +75,10 @@ namespace API.Services
                                 case FragmentType.OpeningTag:
                                     currentNode = new Node(builder.ToString(), currentNode);
                                     stack.Push(currentNode);
-                                    Trace.WriteLine($"Push {currentNode}");
                                     break;
                                 case FragmentType.ClosingTag:
                                     currentNode = stack.Pop();
                                     currentNode = stack.Any() ? stack.Peek() : currentNode;
-                                    Trace.WriteLine($"Pop {currentNode}");
                                     break;
                             }
                             currentFragmentType = FragmentType.Value;
