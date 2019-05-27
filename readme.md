@@ -1,7 +1,7 @@
 NIBO Full-Stack Developers Challenge - Level 2
 ==============
 
-Quer saber o por que vale a pena trabalhar no nibo? Acesse [nibodev.github.io](https://nibodev.github.io)
+Quer saber o por que vale a pena trabalhar no nibo? Acesse [tech.nibo.com.br](https://tech.nibo.com.br)
 
 ------------
 
