@@ -1,11 +1,11 @@
 NIBO Full-Stack Developers Challenge - Level 2
 ==============
 
-Quer saber o por que vale a pena trabalhar no nibo? Acesse [tech.nibo.com.br](https://tech.nibo.com.br)
+Quer saber o por que vale a pena trabalhar no Nibo? Acesse [tech.nibo.com.br](https://tech.nibo.com.br)
 
 ------------
 
-## O desafio:
+## O desafio
 Você deverá criar um simples sistema que atenda à todos os requisitos de negócio e técnicos e nos enviar no prazo estipulado. 
 
 ### Persona
@@ -23,8 +23,7 @@ Lembre-se que os arquivos OFX poderão conter transações de um mesmo período.
 
 Os arquivos OFX estão na pasta ``\OFX``.
 
-
-**Requisitos:**
+**Requisitos**
 - [ ] É necessário persistir as transações finais.
 - [ ] Não utilize bibliotecas específicas para a leitura de arquivos do tipo OFX.
 - [ ] Você deverá desenvolver uma solução **WEB** em C# .NET utilizando os frameworks, tecnologias e conceitos que julgar melhor.
