@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+using DevelopersChallenge2.WebAPI.Util;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevelopersChallenge2.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class UploadController : ControllerBase
     {
         // GET api/values
         [HttpGet]
@@ -26,8 +29,14 @@ namespace DevelopersChallenge2.WebAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post()
         {
+            List<BANKTRANLIST> result = new List<BANKTRANLIST>();
+            using (var stream = new StreamReader(Request.Body))
+            {
+                result = OFXParserUtil.Parser(stream.ReadToEnd());
+            }
+            return Created(Request.Path, result);
         }
 
         // PUT api/values/5

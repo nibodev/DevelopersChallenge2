@@ -13,7 +13,7 @@ export class UploadService {
     let formData = new FormData();
 
     for (let i = 0; i < files.length; i++) {
-      formData.append('file', files[i], files[i].name);      
+      formData.append('file', files[i], files[i].name);
     }
 
     const request = new HttpRequest('POST', `${environment.baseUrl}/api/upload`, formData);

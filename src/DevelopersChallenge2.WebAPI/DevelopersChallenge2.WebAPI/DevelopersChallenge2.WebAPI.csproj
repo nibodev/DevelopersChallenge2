@@ -13,4 +13,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DevelopersChallenge2.Domain\DevelopersChallenge2.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

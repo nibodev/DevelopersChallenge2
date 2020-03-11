@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-ofx.component.css']
 })
 export class ListOfxComponent implements OnInit {
+  public listTransaction = [];
 
   constructor() { }
 

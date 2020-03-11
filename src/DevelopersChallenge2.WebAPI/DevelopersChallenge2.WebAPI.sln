@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopersChallenge2.WebAPI", "DevelopersChallenge2.WebAPI\DevelopersChallenge2.WebAPI.csproj", "{1A96DD0F-48FB-4026-A8FF-68D79012652F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevelopersChallenge2.WebAPI", "DevelopersChallenge2.WebAPI\DevelopersChallenge2.WebAPI.csproj", "{1A96DD0F-48FB-4026-A8FF-68D79012652F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopersChallenge2.Domain", "DevelopersChallenge2.Domain\DevelopersChallenge2.Domain.csproj", "{2238E596-B7BB-426C-9E22-A4DA12072F2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevelopersChallenge2.Domain", "DevelopersChallenge2.Domain\DevelopersChallenge2.Domain.csproj", "{2238E596-B7BB-426C-9E22-A4DA12072F2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopersChallenge2.Repository", "DevelopersChallenge2.Repository\DevelopersChallenge2.Repository.csproj", "{466E774F-CFB2-497A-B79E-A5E62FE0797F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopersChallenge2.Service", "DevelopersChallenge2.Service\DevelopersChallenge2.Service.csproj", "{08E69517-08BC-49DF-847E-B268C3763D73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{2238E596-B7BB-426C-9E22-A4DA12072F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2238E596-B7BB-426C-9E22-A4DA12072F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2238E596-B7BB-426C-9E22-A4DA12072F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{466E774F-CFB2-497A-B79E-A5E62FE0797F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{466E774F-CFB2-497A-B79E-A5E62FE0797F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{466E774F-CFB2-497A-B79E-A5E62FE0797F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{466E774F-CFB2-497A-B79E-A5E62FE0797F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08E69517-08BC-49DF-847E-B268C3763D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E69517-08BC-49DF-847E-B268C3763D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E69517-08BC-49DF-847E-B268C3763D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E69517-08BC-49DF-847E-B268C3763D73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
