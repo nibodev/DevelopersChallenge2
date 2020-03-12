@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace DevelopersChallenge2.WebAPI.Util
+namespace DevelopersChallenge2.Service.Util
 {
     public abstract class OFXParserUtil
     {

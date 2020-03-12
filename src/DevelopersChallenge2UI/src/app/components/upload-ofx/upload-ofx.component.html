@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+		</div>
+		<div class="custom-file">
+			<input type="file" name="file" multiple (change)="loadFiles($event.target.files)" class="custom-file-input"
+				id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" />
+			<label class="custom-file-label" for="inputGroupFile01" id="inputGroupFile01Label">Choose file(s)</label>
+		</div>
+	</div>
+</div>
+<br>
+<div class="row" *ngIf="listFiles !== undefined">
+	<div class="media" *ngFor="let file of listFiles">
+		<img src="..." class="mr-3" alt="..." />
+		<div class="media-body">
+			<h5 class="mt-0">Tipo do Arquivo</h5>
+			{{ file.name }}
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<button type="button" class="btn btn-primary" (click)="uploadFiles()" [disabled]="!listFiles">
+		Upload Files
+	</button>
+</div>

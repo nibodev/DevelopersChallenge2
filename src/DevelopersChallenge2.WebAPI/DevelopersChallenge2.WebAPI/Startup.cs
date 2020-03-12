@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DevelopersChallenge2.Repository;
+using DevelopersChallenge2.Repository.Interfaces;
+using DevelopersChallenge2.Repository.Repositories;
+using DevelopersChallenge2.Service.Interfaces;
+using DevelopersChallenge2.Service.Servicies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +33,12 @@ namespace DevelopersChallenge2.WebAPI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddCors();
+
+            services.AddDbContext<DevelopersChallenge2Context>();
+
+            services.AddScoped<IBankListRepository, BankLIstRepository>();
+
+            services.AddScoped<IBankListService, BankListService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

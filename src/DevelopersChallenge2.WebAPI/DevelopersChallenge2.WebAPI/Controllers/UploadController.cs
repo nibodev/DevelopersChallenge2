@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
-using DevelopersChallenge2.WebAPI.Util;
+﻿using System.Threading.Tasks;
+using DevelopersChallenge2.Domain;
+using DevelopersChallenge2.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevelopersChallenge2.WebAPI.Controllers
@@ -13,42 +9,52 @@ namespace DevelopersChallenge2.WebAPI.Controllers
     [ApiController]
     public class UploadController : ControllerBase
     {
+        private readonly IBankListService service;
+        
+        public UploadController(IBankListService service)
+        {
+            this.service = service;
+        }
+
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            return Ok(await this.service.Get());
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return "value";
+            return Ok(await this.service.GetById(id));
         }
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post()
+        public async Task<IActionResult> Post()
         {
-            List<BANKTRANLIST> result = new List<BANKTRANLIST>();
-            using (var stream = new StreamReader(Request.Body))
-            {
-                result = OFXParserUtil.Parser(stream.ReadToEnd());
-            }
+
+            var result = await this.service.PostBankList(Request.Body);
+            //this.service.Post(result);
+
             return Created(Request.Path, result);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(int id, [FromBody] BANKTRANLIST value)
         {
+            await this.service.Put(value);
+            return NoContent();
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
+            await this.service.Delete(id);
+            return NoContent();
         }
     }
 }

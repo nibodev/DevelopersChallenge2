@@ -83,7 +83,7 @@ namespace DevelopersChallenge2.Domain
     }
 
     [Serializable]
-    public class BANKTRANLIST
+    public class BANKTRANLIST : Entity
     {
         [XmlElement]
         public string DTSTART { get; set; }

@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
+    <ProjectReference Include="..\DevelopersChallenge2.Domain\DevelopersChallenge2.Domain.csproj" />
+    <ProjectReference Include="..\DevelopersChallenge2.Repository\DevelopersChallenge2.Repository.csproj" />
   </ItemGroup>
 
 </Project>

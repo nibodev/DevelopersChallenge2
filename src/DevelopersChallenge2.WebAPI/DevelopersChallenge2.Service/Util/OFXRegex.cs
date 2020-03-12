@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace DevelopersChallenge2.WebAPI.Util
+namespace DevelopersChallenge2.Service.Util
 {
     public abstract class OFXRegex
     {
@@ -22,5 +22,7 @@ namespace DevelopersChallenge2.WebAPI.Util
 
 
         public Regex OnlyNumbers { get; set; } = new Regex(@"(\d+)");
+
+        public Regex OnlySixNumbers { get; set; } = new Regex(@"\d{8}");
     }
 }
