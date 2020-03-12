@@ -2,7 +2,7 @@
 
 namespace DevelopersChallenge2.Service.Util
 {
-    public abstract class OFXRegex
+    public class OFXRegex
     {
         public Regex OFXBetweenTagOFX { get; set; } = new Regex(@"<OFX>(.|\n)*?<\/OFX>", RegexOptions.IgnoreCase);
 

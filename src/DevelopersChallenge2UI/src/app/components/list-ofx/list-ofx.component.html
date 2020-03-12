@@ -1,3 +1,10 @@
+<div class="row" *ngIf="listTransaction">
+  <pre>
+    Start Period: <span>{{ listTransaction.dateStart }}</span>
+    End Period:   <span>{{ listTransaction.dateEnd }}</span>
+  </pre>
+</div>
+
 <div class="row" *ngIf="listTransaction.transactions">
 	<table class="table">
 		<thead>

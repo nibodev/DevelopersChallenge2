@@ -47,9 +47,7 @@ namespace DevelopersChallenge2.WebAPI
                 app.UseHsts();
             }
 
-            app.UseCors(x => x.AllowAnyOrigin()
-                            .AllowAnyHeader()
-                            .AllowAnyMethod());
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 
             app.UseHttpsRedirection();
             app.UseMvc();

@@ -1,4 +1,5 @@
 ﻿using DevelopersChallenge2.Domain;
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
@@ -6,10 +7,10 @@ namespace DevelopersChallenge2.Service.Util
 {
     public abstract class OFXParserUtil
     {
-        private static readonly OFXRegex OfxRegex;
-
         public static List<BANKTRANLIST> Parser(string docFile)
         {
+            OFXRegex OfxRegex = new OFXRegex();
+
             // Extract only OFX scheme
             string[] stringFiles = ExtractOFX(docFile);
 
@@ -43,13 +44,21 @@ namespace DevelopersChallenge2.Service.Util
 
         public static string[] ExtractOFX(string docFile)
         {
-            MatchCollection files = OfxRegex.OFXBetweenTagOFX.Matches(docFile);
-            string[] stringFiles = new string[files.Count];
+            OFXRegex OfxRegex = new OFXRegex();
+            try
+            {
+                MatchCollection files = OfxRegex.OFXBetweenTagOFX.Matches(docFile);
+                string[] stringFiles = new string[files.Count];
 
-            for (var i = 0; i < files.Count; i++)
-                stringFiles[i] += files[i].Value;
+                for (var i = 0; i < files.Count; i++)
+                    stringFiles[i] += files[i].Value;
 
-            return stringFiles;
+                return stringFiles;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            };
         }
     }
 }

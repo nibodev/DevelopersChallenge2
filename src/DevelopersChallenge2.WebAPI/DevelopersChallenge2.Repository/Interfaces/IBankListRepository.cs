@@ -2,5 +2,5 @@
 
 namespace DevelopersChallenge2.Repository.Interfaces
 {
-    public interface IBankListRepository : IBaseRepository<BANKTRANLIST> {}
+    public interface IBankListRepository : IBaseRepository<BankList> {}
 }
