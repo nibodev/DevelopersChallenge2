@@ -1,0 +1,31 @@
+<div class="row" *ngIf="listTransaction">
+  <pre>
+    Start Period: <span>{{ listTransaction.dateStart }}</span>
+    End Period:   <span>{{ listTransaction.dateEnd }}</span>
+  </pre>
+</div>
+
+<div class="row" *ngIf="listTransaction.transactions">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Type Transaction</th>
+				<th scope="col">Date Posted</th>
+				<th scope="col">Transaction Amount</th>
+				<th scope="col">Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let transaction of listTransaction.transactions">
+				<th scope="row">{{ transaction.transactionType }}</th>
+				<td>{{ transaction.datePosted }}</td>
+				<td>{{ transaction.transactionAmount }}</td>
+				<td>{{ transaction.memo }}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="alert alert-primary" role="alert" *ngIf="!listTransaction">
+	No transaction exist!
+</div>
