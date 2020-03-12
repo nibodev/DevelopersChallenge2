@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevelopersChallenge2.WebAPI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevelopersChallenge2.Domain", "DevelopersChallenge2.Domain\DevelopersChallenge2.Domain.csproj", "{2238E596-B7BB-426C-9E22-A4DA12072F2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopersChallenge2.Repository", "DevelopersChallenge2.Repository\DevelopersChallenge2.Repository.csproj", "{466E774F-CFB2-497A-B79E-A5E62FE0797F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevelopersChallenge2.Repository", "DevelopersChallenge2.Repository\DevelopersChallenge2.Repository.csproj", "{466E774F-CFB2-497A-B79E-A5E62FE0797F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopersChallenge2.Service", "DevelopersChallenge2.Service\DevelopersChallenge2.Service.csproj", "{08E69517-08BC-49DF-847E-B268C3763D73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevelopersChallenge2.Service", "DevelopersChallenge2.Service\DevelopersChallenge2.Service.csproj", "{08E69517-08BC-49DF-847E-B268C3763D73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

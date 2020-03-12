@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DevelopersChallenge2.Repository;
+﻿using DevelopersChallenge2.Repository;
 using DevelopersChallenge2.Repository.Interfaces;
 using DevelopersChallenge2.Repository.Repositories;
 using DevelopersChallenge2.Service.Interfaces;
 using DevelopersChallenge2.Service.Servicies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace DevelopersChallenge2.WebAPI
 {
@@ -34,7 +28,7 @@ namespace DevelopersChallenge2.WebAPI
 
             services.AddCors();
 
-            services.AddDbContext<DevelopersChallenge2Context>();
+            services.AddDbContext<DevelopersChallenge2Context>(opt => opt.UseSqlServer(Configuration.GetConnectionString("Conexao")));
 
             services.AddScoped<IBankListRepository, BankLIstRepository>();
 
