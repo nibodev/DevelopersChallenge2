@@ -36,14 +36,13 @@ namespace DevelopersChallenge2.WebAPI.Controllers
         {
 
             var result = await this.service.PostBankList(Request.Body);
-            //this.service.Post(result);
 
             return Created(Request.Path, result);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] BANKTRANLIST value)
+        public async Task<IActionResult> Put(int id, [FromBody] BankList value)
         {
             await this.service.Put(value);
             return NoContent();

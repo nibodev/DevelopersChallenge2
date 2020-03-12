@@ -9,6 +9,6 @@ namespace DevelopersChallenge2.Domain
         public decimal TransactionAmount { get; set; }
         public string Memo { get; set; }
 
-        public virtual int IdBankList { get; set; }
+        public virtual int BankListId { get; set; }
     }
 }

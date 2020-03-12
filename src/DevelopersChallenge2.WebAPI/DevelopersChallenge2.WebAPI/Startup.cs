@@ -32,6 +32,8 @@ namespace DevelopersChallenge2.WebAPI
 
             services.AddScoped<IBankListRepository, BankLIstRepository>();
 
+            services.AddScoped<ITransactionRepository, TransactionRepository>();
+
             services.AddScoped<IBankListService, BankListService>();
         }
 

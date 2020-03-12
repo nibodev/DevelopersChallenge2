@@ -3,7 +3,7 @@ using DevelopersChallenge2.Repository.Interfaces;
 
 namespace DevelopersChallenge2.Repository.Repositories
 {
-    public class BankLIstRepository : BaseRepository<BANKTRANLIST>, IBankListRepository
+    public class BankLIstRepository : BaseRepository<BankList>, IBankListRepository
     {
         public BankLIstRepository(DevelopersChallenge2Context context) : base(context) { } 
     }

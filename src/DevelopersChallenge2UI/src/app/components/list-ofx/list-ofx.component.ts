@@ -1,6 +1,6 @@
+import { BankList } from './../../Models/BankList';
 import { Component, OnInit } from '@angular/core';
-import { BankList } from 'src/app/Models/BankList';
-import { Transaction } from 'src/app/Models/Transaction';
+import { ListOfxService } from 'src/app/services/list-ofx.service';
 
 @Component({
   selector: 'app-list-ofx',
@@ -8,26 +8,23 @@ import { Transaction } from 'src/app/Models/Transaction';
   styleUrls: ['./list-ofx.component.css']
 })
 export class ListOfxComponent implements OnInit {
-  public listTransaction: BankList;
+  public listTransaction: any;
 
-  constructor() {
-    this.mockTest();
-   }
+  constructor(private listOfx: ListOfxService) {}
 
   ngOnInit(): void {
+    this.loadList();
   }
 
-  public mockTest(): void {
-    this.listTransaction = new BankList();
-    this.listTransaction.dateStart = new Date('2014-02-01');
-    this.listTransaction.dateEnd = new Date('2014-02-01');
-    this.listTransaction.transactions = new Array<Transaction>();
-
-    let mock = new Transaction();
-    mock.datePosted = new Date('2014-02-03');
-    mock.transactionType = 'Debit';
-    mock.transactionAmount = -140.00;
-    mock.memo = 'CXE     001958 SAQUE';
-    this.listTransaction.transactions.push(mock);
+  public loadList(): void {
+    this.listOfx.getTransactions()
+    .subscribe(
+      res => {
+        console.log('Arquivos carregados com sucesso: ', res);
+        console.log(`Bank List: ${res['body']}`);
+        this.listTransaction = res[0];
+      },
+      err => console.error('Falha ao carregar os arquivos! ', err)
+    );
   }
 }

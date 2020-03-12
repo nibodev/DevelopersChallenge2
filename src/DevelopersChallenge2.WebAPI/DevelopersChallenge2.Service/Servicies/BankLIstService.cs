@@ -10,15 +10,22 @@ using System.Threading.Tasks;
 
 namespace DevelopersChallenge2.Service.Servicies
 {
-    public class BankListService : BaseService<BANKTRANLIST>, IBankListService
+    public class BankListService : BaseService<BankList>, IBankListService
     {
         private readonly IBankListRepository repository;
-        public BankListService(IBankListRepository repository) : base(repository) => this.repository = repository;
+        private readonly ITransactionRepository transactionRepository;
+        public BankListService(IBankListRepository repository,
+            ITransactionRepository transactionRepository) : base(repository)
+        {
+            this.repository = repository;
+            this.transactionRepository = transactionRepository;
+        }
 
         public async Task<BankList> PostBankList(Stream requestBody)
         {
             var bankTranactionList = await ParseOFX(requestBody);
             var bankList = await ConvertToBankList(bankTranactionList);
+            await Post(bankList);
             return bankList;
         }
 
@@ -160,6 +167,13 @@ namespace DevelopersChallenge2.Service.Servicies
                 result = OFXParserUtil.Parser(stream.ReadToEnd());
             
             return result;
+        }
+
+        public override async Task<IList<BankList>> Get()
+        {
+            var bankList = await this.repository.Get();
+            bankList.ElementAt(0).Transactions = await this.transactionRepository.GetByCondition(t => t.BankListId == bankList.ElementAt(0).Id) as List<Transaction>;
+            return bankList;
         }
     }
 }
