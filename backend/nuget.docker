@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
+    <add key="TNF Release" value="https://www.myget.org/F/tnf/api/v3/index.json" />   
+  </packageSources>
+  <packageSourceCredentials>
+    <Thex>
+      <add key="Username" value="unused" />
+      <add key="ClearTextPassword" value="mzjtxgnq2w7ajbbb2jwn5h5da5vb5jihcvjgie774csrvpjykjwa" />
+    </Thex>
+    <DevExpress>
+      <add key="Username" value="unused" />
+      <add key="ClearTextPassword" value="mzjtxgnq2w7ajbbb2jwn5h5da5vb5jihcvjgie774csrvpjykjwa" />
+    </DevExpress>
+  </packageSourceCredentials>
+  <disabledPackageSources />
+</configuration>

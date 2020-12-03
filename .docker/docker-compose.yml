@@ -1,0 +1,35 @@
+version: "3.1"
+services:    
+    poll-api:
+        container_name: poll-api
+        image: poll-api
+        restart: always
+        networks:
+            - poll-network
+        environment:
+            ASPNETCORE_ENVIRONMENT: "Development"
+        build:
+            context: ../backend/
+            dockerfile: Poll/Dockerfile
+        ports:
+            - "5033:80"
+        depends_on:
+            - pgsql-data
+        links:
+            - pgsql-data      
+    pgsql-data:
+        container_name: pgsql-data
+        image: postgres:12
+        networks:
+            - poll-network
+        volumes:
+            - ./database/pgsql/data:/var/lib/postgresql
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_USER: pguser
+            POSTGRES_PASSWORD: "cmsol@strongpass!123"
+            POSTGRES_DB: poll-pgsql    
+networks:
+  poll-network:
+    driver: bridge

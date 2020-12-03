@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{790E1D36-45DE-4B97-9157-4609BACB9C1E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A846B3F1-C8C2-4F41-AE48-ED1915DD64BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - API", "0 - API", "{EE442ACC-7AEC-4D62-8B1B-9B80F92CB6F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{E96E0E2F-1969-4CEC-A6EB-FED2DACA9E3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{2A879B31-1F24-42CF-9F99-1AAE5ED8838D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - CrossCutting", "3 - CrossCutting", "{B58EBF00-5D0F-4E9A-BB9E-09C5D60111F5}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EE442ACC-7AEC-4D62-8B1B-9B80F92CB6F9} = {790E1D36-45DE-4B97-9157-4609BACB9C1E}
+		{E96E0E2F-1969-4CEC-A6EB-FED2DACA9E3C} = {790E1D36-45DE-4B97-9157-4609BACB9C1E}
+		{2A879B31-1F24-42CF-9F99-1AAE5ED8838D} = {790E1D36-45DE-4B97-9157-4609BACB9C1E}
+		{B58EBF00-5D0F-4E9A-BB9E-09C5D60111F5} = {790E1D36-45DE-4B97-9157-4609BACB9C1E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C1E4452D-5913-4509-B665-D91A3B4CCDEA}
+	EndGlobalSection
+EndGlobal
