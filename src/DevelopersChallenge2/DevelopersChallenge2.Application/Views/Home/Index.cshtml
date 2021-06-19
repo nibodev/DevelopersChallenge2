@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <form action="processa_imagem_perfil.php" method="post" enctype="multipart/form-data">
+        <label>Imagem de perfil: <input type="file" name="image[]" multiple="multiple"></label>
+        <input type="submit" value="Submit">
+    </form>
+</div>
