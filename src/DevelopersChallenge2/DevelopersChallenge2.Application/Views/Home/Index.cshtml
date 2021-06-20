@@ -3,10 +3,10 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Upload dos arquivos .Ofx</h1>
 
-    <form action="processa_imagem_perfil.php" method="post" enctype="multipart/form-data">
-        <label>Imagem de perfil: <input type="file" name="image[]" multiple="multiple"></label>
-        <input type="submit" value="Submit">
+    <form enctype="multipart/form-data" method="post" asp-controller="Home" asp-action="UploadFiles">
+        <label>Arquivos Ofx: <input type="file" id="FormFiles" name="FormFiles" multiple="multiple"></label>
+        <input class="button" type="submit" value="Enviar">
     </form>
 </div>
