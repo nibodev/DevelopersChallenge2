@@ -1,13 +1,12 @@
+using DevelopersChallenge2.Application.Domain.Interfaces;
+using DevelopersChallenge2.Application.Repository;
+using DevelopersChallenge2.Application.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DevelopersChallenge2.Application
 {
@@ -24,6 +23,10 @@ namespace DevelopersChallenge2.Application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<MyContext>(opt => opt.UseInMemoryDatabase("DevelopersChallenge2"));
+            services.AddScoped<ITransactionRepository, TransactionRepository>();
+            services.AddScoped<IOfxService, OfxService>();;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
